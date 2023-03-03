@@ -74,7 +74,7 @@ def calcJacobian(q_in):
     #print(Jv)
     Jv = Jv.transpose()
     print(Jv)
-    Jw = np.array([z1,z2,z3,z4,z5,z6,z7])
+    Jw = np.array([z0,z1,z2,z3,z4,z5,z6])
     Jw = Jw.transpose()
     print(Jw)
     J = np.vstack((Jv,Jw))
