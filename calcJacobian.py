@@ -82,6 +82,6 @@ def calcJacobian(q_in):
     J = J.reshape(6,7)
     return J
 
-if __name__ == '__main__':
-    q= np.array([0, 0, 0, -np.pi/2, 0, np.pi/2, np.pi/4])
-    print(np.round(calcJacobian(q),3))
+#if __name__ == '__main__':
+    #q= np.array([0, 0, 0, -np.pi/2, 0, np.pi/2, np.pi/4])
+    #print(np.round(calcJacobian(q),3))
