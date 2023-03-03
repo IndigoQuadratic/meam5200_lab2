@@ -24,7 +24,12 @@ def IK_velocity(q_in, v_in, omega_in):
     v_in = v_in.reshape((3,1))
     omega_in = omega_in.reshape((3,1))
     zeta = np.vstack((v_in,omega_in))
-    #k,b = np.linalg.lstsq(J, zeta, rcond=None)[0]
+    nan_= ~np.isnan(zeta)
+    J = calcJacobian(q_in)
+    J_nan_=J[nan_.flatten(),:]
+    zeta_=zeta[nan_]
+    zeta_=zeta.reshape((zeta_.shape[0],1))
+    dq = np.linalg.lstsq(J_nan_,zeta_, rcond=None)[0]
     #dq = k
-    dq = np.dot(J_inv,zeta)
+    #dq = np.dot(J_inv,zeta)
     return dq
