@@ -20,7 +20,7 @@ def IK_velocity(q_in, v_in, omega_in):
 
     dq = np.zeros((1, 7))
     J = calcJacobian(q_in)
-    J_inv = np.linalg.pinv(J)
+    #J_inv = np.linalg.pinv(J)
     v_in = v_in.reshape((3,1))
     omega_in = omega_in.reshape((3,1))
     zeta = np.vstack((v_in,omega_in))
