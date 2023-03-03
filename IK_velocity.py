@@ -24,5 +24,5 @@ def IK_velocity(q_in, v_in, omega_in):
     v_in = v_in.reshape((3,1))
     omega_in = omega_in.reshape((3,1))
     zeta = np.vstack((v_in,omega_in))
-    dq = lstsq(J,zeta)
+    dq,b = np.linalg.lstsq(J, zeta, rcond=None)[0]
     return dq
