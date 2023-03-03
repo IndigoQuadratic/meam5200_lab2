@@ -27,9 +27,9 @@ def IK_velocity(q_in, v_in, omega_in):
     nan_= ~np.isnan(zeta)
     J = calcJacobian(q_in)
     J_nan_=J[nan_.flatten(),:]
+    J_nan_inv = np.linalg.pinv(J_nan_)
     zeta_=zeta[nan_]
     zeta_=zeta.reshape((zeta_.shape[0],1))
-    dq = np.linalg.lstsq(J_nan_,zeta_, rcond=None)[0]
-    #dq = k
-    #dq = np.dot(J_inv,zeta)
+    #dq = np.linalg.lstsq(J_nan_,zeta_, rcond=None)[0]
+    dq = np.dot(J_nan_inv,zeta_)
     return dq
